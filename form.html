@@ -1,0 +1,70 @@
+<!Doctype html>
+<html>
+<head>
+<title>
+</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body style="background-color:#f9f9f9;">
+  <div class="container">
+ <div class="row">
+      
+        <h4 style="text-align: center; font-family:serif;color: #333;font-size: 2em; ">Form</h4>
+      </div>
+    
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-8">
+          <div style="background-color:#f9f9f9;border-radius:5%;padding: 10%; border:1px solid #d8dee2;">
+<form id="first_form" method="post" action="">
+  <div class="row">
+    <div class="form-group">
+    <label for="uname">Username:</label>
+    <input type="text" id="uname" class="form-control" name="name">
+  </div>
+</div>
+  <div class="row">
+    <div class="form-group">
+    <label for="mob">Mobile:</label>
+    <input type="tel" id="mob" class="form-control" name="mobi">
+  </div>
+</div>
+  <div class="row">
+                <div class="form-group">
+                  <br>
+                  <button type="submit" class="btn btn-success btn-block" >Submit</button>
+                </div>
+              </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+ 
+  $('#first_form').submit(function(e) {
+    
+    var uname = $('#uname').val();
+    var mobile = $('#mob').val();
+ 
+    $(".error").remove();
+ 
+if (uname.length < 1) {
+      $('#uname').after('This field is required');
+    }
+    
+     if(/[^a-zA-Z]/.test(uname)){
+      $('#uname').after('Enter the valid name'); 
+    }
+
+if(mobile.length!=10 || mobile.length<1)
+{
+ $('#mob').after('enter the valid number');
+}
+
+    });
+ 
+});
+</script>
+</body>
+</html>

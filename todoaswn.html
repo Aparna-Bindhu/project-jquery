@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To-Do List</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .done {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        
+        li:hover {
+            cursor: pointer;
+        }
+        
+        ol li {
+            padding: 5px;
+            color: #000;
+            background: #dfdfdf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <div align="center">
+                    <div class="jumbotron text-center">
+                        <h1>TO DO LIST</h1>
+                    </div>
+                    <form>
+                        <input type="text" class="newtodo" placeholder="type here...">
+                    </form>
+                    <br>
+                    <button class="btn btn-success" id="additem">ADD</button>
+
+                    <br>
+                    <br>
+                    <ol>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.newtodo').val('');
+            $('#additem').click(function() {
+                var data = $('.newtodo').val();
+
+                $('ol').append('<li>' + data + ' ' + ' <span id="deleteit" class="glyphicon glyphicon-trash"></span></li><br>');
+                $('.newtodo').val('');
+
+                $('li').dblclick(function() {
+                    $(this).css("text-decoration", "line-through");
+                });
+
+                $(document).on('click', '#deleteit', function() {
+                    $(this).parent().css("display", "none");
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
